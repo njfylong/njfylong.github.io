@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[工具－opengrok搭建]]></title>
+      <url>%2F2017%2F03%2F18%2Fopengrok-building%2F</url>
+      <content type="text"><![CDATA[OpenGork是一个快速、便于使用的源码搜索引d擎与对照引擎，能帮我们快速的搜索、定位、对照代码树。 下载Tomcat,OpenGorkapache-tomcat-7.0.22.tar.gz：https://pan.baidu.com/s/1geHdfAbopengrok-0.12.1.tar.gz：https://pan.baidu.com/s/1o7EgW4M 启动Tomact12cd Tomact/bin./startup.sh 配置OpenGork解压opengrok将opengrok-0.12.1/lib目录下的source.war包拷贝到apache-tomcat-7.0.40/webapps目录下，在浏览器中输入 http://localhost:8080/source/ 查看是否配置成功。 创建/var/opengrok/etc/目录12345cd /varsudo mkdir opengroksudo mkdir opengrok/etcsudo chmod -R 777 opengroksudo chown archermind:archermind opengrok 建立源码索引12cd opengrok-0.11.1/bin./OpenGrok index /data/code 访问http://localhost:8080/source/ 查看。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[hello-world]]></title>
       <url>%2F2017%2F03%2F16%2Fhello-world%2F</url>
       <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
