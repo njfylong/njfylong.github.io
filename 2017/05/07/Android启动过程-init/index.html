@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Tools," />
+  <meta name="keywords" content="Android启动," />
 
 
 
@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="OpenGork是一个快速、便于使用的源码搜索引d擎与对照引擎，能帮我们快速的搜索、定位、对照代码树。">
+<meta name="description" content="Android是基于Linux基础上开发的OS，其内核还是Linux，所以Android系统的启动可以看成：Linux -&amp;gt; Android，本文仅介绍Android的启动过程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="工具－opengrok搭建">
-<meta property="og:url" content="http://yoursite.com/2017/03/18/opengrok-building/index.html">
+<meta property="og:title" content="Android启动过程-init">
+<meta property="og:url" content="http://yoursite.com/2017/05/07/Android启动过程-init/index.html">
 <meta property="og:site_name" content="It's njfylong blog.">
-<meta property="og:description" content="OpenGork是一个快速、便于使用的源码搜索引d擎与对照引擎，能帮我们快速的搜索、定位、对照代码树。">
-<meta property="og:updated_time" content="2017-03-18T13:33:48.309Z">
+<meta property="og:description" content="Android是基于Linux基础上开发的OS，其内核还是Linux，所以Android系统的启动可以看成：Linux -&amp;gt; Android，本文仅介绍Android的启动过程。">
+<meta property="og:updated_time" content="2017-05-07T13:41:09.576Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="工具－opengrok搭建">
-<meta name="twitter:description" content="OpenGork是一个快速、便于使用的源码搜索引d擎与对照引擎，能帮我们快速的搜索、定位、对照代码树。">
+<meta name="twitter:title" content="Android启动过程-init">
+<meta name="twitter:description" content="Android是基于Linux基础上开发的OS，其内核还是Linux，所以Android系统的启动可以看成：Linux -&amp;gt; Android，本文仅介绍Android的启动过程。">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/18/opengrok-building/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/07/Android启动过程-init/"/>
 
 
 
 
 
-  <title> 工具－opengrok搭建 | It's njfylong blog. </title>
+  <title> Android启动过程-init | It's njfylong blog. </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -303,7 +303,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/18/opengrok-building/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/07/Android启动过程-init/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="njfylong">
@@ -324,7 +324,7 @@
             
             
               
-                工具－opengrok搭建
+                Android启动过程-init
               
             
           </h1>
@@ -339,8 +339,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-18T21:15:18+08:00">
-                2017-03-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-07T21:35:23+08:00">
+                2017-05-07
               </time>
             
 
@@ -362,8 +362,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/" itemprop="url" rel="index">
-                    <span itemprop="name">Tools</span>
+                  <a href="/categories/Android源码学习/" itemprop="url" rel="index">
+                    <span itemprop="name">Android源码学习</span>
                   </a>
                 </span>
 
@@ -380,8 +380,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/18/opengrok-building/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/18/opengrok-building/" itemprop="commentCount"></span>
+                <a href="/2017/05/07/Android启动过程-init/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/07/Android启动过程-init/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -389,7 +389,7 @@
 
           
           
-             <span id="/2017/03/18/opengrok-building/" class="leancloud_visitors" data-flag-title="工具－opengrok搭建">
+             <span id="/2017/05/07/Android启动过程-init/" class="leancloud_visitors" data-flag-title="Android启动过程-init">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -418,13 +418,44 @@
       
 
       
-        <p>OpenGork是一个快速、便于使用的源码搜索引d擎与对照引擎，能帮我们快速的搜索、定位、对照代码树。<br><a id="more"></a></p>
-<h3 id="下载Tomcat-OpenGork"><a href="#下载Tomcat-OpenGork" class="headerlink" title="下载Tomcat,OpenGork"></a>下载Tomcat,OpenGork</h3><p>apache-tomcat-7.0.22.tar.gz：<a href="https://pan.baidu.com/s/1geHdfAb" target="_blank" rel="external">https://pan.baidu.com/s/1geHdfAb</a><br>opengrok-0.12.1.tar.gz：<a href="https://pan.baidu.com/s/1o7EgW4M" target="_blank" rel="external">https://pan.baidu.com/s/1o7EgW4M</a></p>
-<h3 id="启动Tomact"><a href="#启动Tomact" class="headerlink" title="启动Tomact"></a>启动Tomact</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd Tomact/bin</div><div class="line">./startup.sh</div></pre></td></tr></table></figure>
-<h3 id="配置OpenGork"><a href="#配置OpenGork" class="headerlink" title="配置OpenGork"></a>配置OpenGork</h3><h4 id="解压opengrok"><a href="#解压opengrok" class="headerlink" title="解压opengrok"></a>解压opengrok</h4><p>将opengrok-0.12.1/lib目录下的source.war包拷贝到apache-tomcat-7.0.40/webapps目录下，在浏览器中输入 <a href="http://localhost:8080/source/" target="_blank" rel="external">http://localhost:8080/source/</a> 查看是否配置成功。  </p>
-<h4 id="创建-var-opengrok-etc-目录"><a href="#创建-var-opengrok-etc-目录" class="headerlink" title="创建/var/opengrok/etc/目录"></a>创建/var/opengrok/etc/目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd /var</div><div class="line">sudo mkdir opengrok</div><div class="line">sudo mkdir opengrok/etc</div><div class="line">sudo chmod -R 777 opengrok</div><div class="line">sudo chown archermind:archermind opengrok</div></pre></td></tr></table></figure>
-<h4 id="建立源码索引"><a href="#建立源码索引" class="headerlink" title="建立源码索引"></a>建立源码索引</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd opengrok-0.11.1/bin</div><div class="line">./OpenGrok index /data/code</div></pre></td></tr></table></figure>
-<p> 访问<a href="http://localhost:8080/source/" target="_blank" rel="external">http://localhost:8080/source/</a> 查看。</p>
+        <p>Android是基于Linux基础上开发的OS，其内核还是Linux，所以Android系统的启动可以看成：Linux -&gt; Android，本文仅介绍Android的启动过程。<br><a id="more"></a></p>
+<h3 id="init启动过程"><a href="#init启动过程" class="headerlink" title="init启动过程"></a>init启动过程</h3><p>Linux Kernel启动完成后，转而进入Android的启动，即由内核层转向用户层。init是<br>Linux Kernel完成后进入用户空间的第一个进程，后面的进程在该进程上fork出来的。</p>
+<h4 id="AIL-Android-Init-Language"><a href="#AIL-Android-Init-Language" class="headerlink" title="AIL(Android Init Language)"></a>AIL(Android Init Language)</h4><p>在init中，会涉及到很多的AIL（Android Init Language）也就是.rc文件，如init.rc、<br>init.environ.rc、init.usb.rc、init.${ro.hardware}.rc、init.${ro.zygote}.rc等。AIL<br>中主要做一些启动和属性相关的配置。</p>
+<p>AIL包括四中类型：Actions、Command、Services、Options</p>
+<ul>
+<li>Actions<br>Actions格式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">on &lt;trigger&gt; [&amp;&amp; &lt;trigger&gt;]*</div><div class="line">   &lt;command&gt;</div><div class="line">   &lt;command&gt;</div><div class="line">   &lt;command&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>trigger是一个触发器，当系统匹配该触发器的事件发生时，将会执行command中命令。常见的command有：<br>bootchart_init、chmod、chown等。(更多command可参考./system/core/init/readme.txt)</p>
+<ul>
+<li>Services<br>Services是系统启动具体是init开始是需要启动的service，这里的service跟后面我们要说的各种<br>service不是一个概念。<br>Service格式如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">service &lt;name&gt; &lt;pathname&gt; [ &lt;argument&gt; ]*</div><div class="line">   &lt;option&gt;</div><div class="line">   &lt;option&gt;</div><div class="line">   ...</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>service中的option有：<br>critical：在四分中内重启超过四次，系统重启进入recovery模式<br>disabled：不能自动启动<br>setenv：设置service环境变量<br>socket：创建socket<br>user：执行服务前更改用户名<br>group：执行服务前更改用户组<br>seclabel：执行服务前更改安全级别<br>oneshot：退出时不重启服务<br>class：指定服务类，相同类名的服务可以同时启动或停止，模式为default<br>onrestart：当服务重新启动时执行一个命令<br>writepid：创建进程时将子进程号写入文件  </p>
+<ul>
+<li>Imports<br>这里的import不是一个command</li>
+</ul>
+<h4 id="init基本流程"><a href="#init基本流程" class="headerlink" title="init基本流程"></a>init基本流程</h4><p>init的入口main函数在system/core/init/init.cpp中，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">if (!strcmp(basename(argv[0]), &quot;ueventd&quot;)) &#123;</div><div class="line">    return ueventd_main(argc, argv);</div><div class="line">&#125;</div><div class="line"></div><div class="line">if (!strcmp(basename(argv[0]), &quot;watchdogd&quot;)) &#123;</div><div class="line">    return watchdogd_main(argc, argv);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>根据传入参数，启动ueventd、watchdogd。这里的ueventd_main、watchdogd_main两个函数可以看成<br>是ueventd、watchdogd的入口函数，它们完全可以独立写成和init的模块，之所以没有这么做是因为跟init<br>共享的东西太多。这里把ueventd、watchdogd做成init的软链接,system/core/init/Android.mk:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># Create symlinks</div><div class="line">LOCAL_POST_INSTALL_CMD := $(hide) mkdir -p $(TARGET_ROOT_OUT)/sbin; \</div><div class="line">    ln -sf ../init $(TARGET_ROOT_OUT)/sbin/ueventd; \</div><div class="line">    ln -sf ../init $(TARGET_ROOT_OUT)/sbin/watchdogd</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// Clear the umask.</div><div class="line">umask(0);</div></pre></td></tr></table></figure>
+<p>这里主要mask文件权限。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// 添加环境</div><div class="line">add_environment(&quot;PATH&quot;, _PATH_DEFPATH);</div><div class="line"></div><div class="line">bool is_first_stage = (argc == 1) || (strcmp(argv[1], &quot;--second-stage&quot;) != 0);</div><div class="line"></div><div class="line">// Get the basic filesystem setup we need put together in the initramdisk</div><div class="line">// on / and then we&apos;ll let the rc file figure out the rest.</div><div class="line">if (is_first_stage) &#123;</div><div class="line">    mount(&quot;tmpfs&quot;, &quot;/dev&quot;, &quot;tmpfs&quot;, MS_NOSUID, &quot;mode=0755&quot;);</div><div class="line">    mkdir(&quot;/dev/pts&quot;, 0755);</div><div class="line">    mkdir(&quot;/dev/socket&quot;, 0755);</div><div class="line">    mount(&quot;devpts&quot;, &quot;/dev/pts&quot;, &quot;devpts&quot;, 0, NULL);</div><div class="line">    #define MAKE_STR(x) __STRING(x)</div><div class="line">    mount(&quot;proc&quot;, &quot;/proc&quot;, &quot;proc&quot;, 0, &quot;hidepid=2,gid=&quot; MAKE_STR(AID_READPROC));</div><div class="line">    mount(&quot;sysfs&quot;, &quot;/sys&quot;, &quot;sysfs&quot;, 0, NULL);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>创建tmpfs、/dev/pts、/dev/socket、devpts等节点并挂载。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// We must have some place other than / to create the device nodes for</div><div class="line">// kmsg and null, otherwise we won&apos;t be able to remount / read-only</div><div class="line">// later on. Now that tmpfs is mounted on /dev, we can actually talk</div><div class="line">// to the outside world.</div><div class="line">open_devnull_stdio();</div><div class="line">klog_init();</div><div class="line">klog_set_level(KLOG_NOTICE_LEVEL);</div></pre></td></tr></table></figure>
+<p>open_devnull_stdio：实现在system/core/init/Util.cpp中。<br>klog_init：初始化kernel log，可以用于init过程的调试<br>klog_set_level：设置kernel log的级别，默认的是KLOG_NOTICE_LEVEL，定义的级别有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#define KLOG_ERROR_LEVEL   3</div><div class="line">#define KLOG_WARNING_LEVEL 4</div><div class="line">#define KLOG_NOTICE_LEVEL  5</div><div class="line">#define KLOG_INFO_LEVEL    6</div><div class="line">#define KLOG_DEBUG_LEVEL   7</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// Indicate that booting is in progress to background fw loaders, etc.</div><div class="line">close(open(&quot;/dev/.booting&quot;, O_WRONLY | O_CREAT | O_CLOEXEC, 0000));</div></pre></td></tr></table></figure>
+<p>创建/dev/.booting，加载fimware的时候用。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">property_init();</div><div class="line"></div><div class="line">// If arguments are passed both on the command line and in DT,</div><div class="line">// properties set in DT always have priority over the command-line ones.</div><div class="line">process_kernel_dt();</div><div class="line">process_kernel_cmdline();</div><div class="line"></div><div class="line">// Propagate the kernel variables to internal variables</div><div class="line">// used by init as well as the current required properties.</div><div class="line">export_kernel_boot_props();</div></pre></td></tr></table></figure>
+<p>初始化属性和导入kernel启动属性，主要有：ro.boot.serialno、ro.boot.mode、ro.boot.baseband、ro.boot.bootloader、ro.boot.hardware、ro.boot.revision。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// Set up SELinux, including loading the SELinux policy if we&apos;re in the kernel domain.</div><div class="line">selinux_initialize(is_first_stage);</div></pre></td></tr></table></figure>
+<p>初始化selinux。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">property_load_boot_defaults();</div></pre></td></tr></table></figure>
+<p>加载property，这里主要是build.prop、system.prop、default.prop。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Parser&amp; parser = Parser::GetInstance();</div><div class="line">parser.AddSectionParser(&quot;service&quot;,std::make_unique&lt;ServiceParser&gt;());</div><div class="line">parser.AddSectionParser(&quot;on&quot;, std::make_unique&lt;ActionParser&gt;());</div><div class="line">parser.AddSectionParser(&quot;import&quot;, std::make_unique&lt;ImportParser&gt;());</div><div class="line">parser.ParseConfig(&quot;/init.rc&quot;);</div></pre></td></tr></table></figure>
+<p>载入init.rc，并设置section:service、on、import，*.rc参考AIL。跟Android N之前的版本相比，<br>这块的实现有变化。Android N之前，action、command、service都是通过结构体实现，Android N中<br>把它们提出来分别定义成类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">ActionManager&amp; am = ActionManager::GetInstance();</div><div class="line"></div><div class="line">am.QueueEventTrigger(&quot;early-init&quot;);</div><div class="line"></div><div class="line">// Queue an action that waits for coldboot done so we know ueventd has set up all of /dev...</div><div class="line">am.QueueBuiltinAction(wait_for_coldboot_done_action, &quot;wait_for_coldboot_done&quot;);</div><div class="line">// ... so that we can start queuing up actions that require stuff from /dev.</div><div class="line">am.QueueBuiltinAction(mix_hwrng_into_linux_rng_action, &quot;mix_hwrng_into_linux_rng&quot;);</div><div class="line">am.QueueBuiltinAction(set_mmap_rnd_bits_action, &quot;set_mmap_rnd_bits&quot;);</div><div class="line">am.QueueBuiltinAction(keychord_init_action, &quot;keychord_init&quot;);</div><div class="line">am.QueueBuiltinAction(console_init_action, &quot;console_init&quot;);</div><div class="line"></div><div class="line">// Trigger all the boot actions to get us started.</div><div class="line">am.QueueEventTrigger(&quot;init&quot;);</div><div class="line"></div><div class="line">// Repeat mix_hwrng_into_linux_rng in case /dev/hw_random or /dev/random</div><div class="line">// wasn&apos;t ready immediately after wait_for_coldboot_done</div><div class="line">am.QueueBuiltinAction(mix_hwrng_into_linux_rng_action, &quot;mix_hwrng_into_linux_rng&quot;);</div><div class="line"></div><div class="line">// Don&apos;t mount filesystems or start core system services in charger mode.</div><div class="line">std::string bootmode = property_get(&quot;ro.bootmode&quot;);</div><div class="line">if (bootmode == &quot;charger&quot;) &#123;</div><div class="line">   am.QueueEventTrigger(&quot;charger&quot;);</div><div class="line">&#125; else &#123;</div><div class="line">   am.QueueEventTrigger(&quot;late-init&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Run all property triggers based on current state of the properties.</div><div class="line">am.QueueBuiltinAction(queue_property_triggers_action, &quot;queue_property_triggers&quot;);</div></pre></td></tr></table></figure>
+<p>将early-init,init置于相应的EventTrigger queue中．同时添加内置的action：mix_hwrng_into_linux_rng_action，<br>set_mmap_rnd_bits_action，keychord_init_action，console_init_action，mix_hwrng_into_linux_rng_action<br>等．</p>
+<p>最后，init中最终要的是看懂AIL,rc脚本中包含基本的启动任务．</p>
 
       
     </div>
@@ -470,7 +501,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Tools/" rel="tag"># Tools</a>
+            <a href="/tags/Android启动/" rel="tag"># Android启动</a>
           
         </div>
       
@@ -483,8 +514,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/16/hello-world/" rel="next" title="hello-world">
-                <i class="fa fa-chevron-left"></i> hello-world
+              <a href="/2017/03/18/opengrok-building/" rel="next" title="工具－opengrok搭建">
+                <i class="fa fa-chevron-left"></i> 工具－opengrok搭建
               </a>
             
           </div>
@@ -492,10 +523,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/07/Android启动过程-init/" rel="prev" title="Android启动过程-init">
-                Android启动过程-init <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -510,10 +537,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/03/18/opengrok-building/"
-     data-title="工具－opengrok搭建"
+        <div class="ds-share flat" data-thread-key="2017/05/07/Android启动过程-init/"
+     data-title="Android启动过程-init"
      data-content=""
-     data-url="http://yoursite.com/2017/03/18/opengrok-building/">
+     data-url="http://yoursite.com/2017/05/07/Android启动过程-init/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -540,8 +567,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/18/opengrok-building/"
-           data-title="工具－opengrok搭建" data-url="http://yoursite.com/2017/03/18/opengrok-building/">
+      <div class="ds-thread" data-thread-key="2017/05/07/Android启动过程-init/"
+           data-title="Android启动过程-init" data-url="http://yoursite.com/2017/05/07/Android启动过程-init/">
       </div>
     
   </div>
@@ -667,7 +694,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载Tomcat-OpenGork"><span class="nav-number">1.</span> <span class="nav-text">下载Tomcat,OpenGork</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动Tomact"><span class="nav-number">2.</span> <span class="nav-text">启动Tomact</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置OpenGork"><span class="nav-number">3.</span> <span class="nav-text">配置OpenGork</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解压opengrok"><span class="nav-number">3.1.</span> <span class="nav-text">解压opengrok</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建-var-opengrok-etc-目录"><span class="nav-number">3.2.</span> <span class="nav-text">创建/var/opengrok/etc/目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#建立源码索引"><span class="nav-number">3.3.</span> <span class="nav-text">建立源码索引</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#init启动过程"><span class="nav-number">1.</span> <span class="nav-text">init启动过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AIL-Android-Init-Language"><span class="nav-number">1.1.</span> <span class="nav-text">AIL(Android Init Language)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#init基本流程"><span class="nav-number">1.2.</span> <span class="nav-text">init基本流程</span></a></li></ol></li></ol></div>
             
 
           </div>
