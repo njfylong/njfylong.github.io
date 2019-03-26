@@ -1,10 +1,13 @@
 ---
 title: WIN10下安装HEXO搭建博客
-categories: IT
+categories: 
+- IT
+tags: 
+- HEXO
 ---
 >  Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
 
-### 安装准备
+#### 安装准备
 - [Node.js](https://nodejs.org/en/)
 - [github](https://git-scm.com/)
 
@@ -16,7 +19,7 @@ categories: IT
 msiexec /package xxx
 ```
 
-### 安装Hexo
+#### 安装Hexo
 打开"git bash",执行
 ```
 npm install -g hexo
@@ -57,12 +60,12 @@ npm config set registry="http://registry.cnpmjs.org
 npm install -g hexo
 ```
 
-### 安装依赖包
+#### 安装依赖包
 ```
 npm install
 ```
 
-### 部署Hexo
+#### 部署Hexo
 1. 创建初始配置
 ```
 hexo init
