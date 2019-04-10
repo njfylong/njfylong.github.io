@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[环境部署]]></title>
+    <url>%2F2019%2F03%2F30%2F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%2F</url>
+    <content type="text"><![CDATA[OpenGorkOpenGork是一个快速、便于使用的源码搜索引擎与对照引擎，能帮我们快速的搜索、定位、对照代码树。 启动Tomact12cd Tomact/bin./startup.sh 启动Tomcat服务后，在浏览器中输入网址：http://localhost:8080/ 能够进入以下页面证明Tomcat运行成功 配置OpenGork 解压OpenGrok将opengrok-0.12.1/lib目录下的source.war包拷贝到apache-tomcat-7.0.40/webapps目录下，在浏览器中输入 http://localhost:8080/source/ 查看是否配置成功。 创建/var/opengrok/etc/目录 12345cd /varsudo mkdir opengroksudo mkdir opengrok/etcsudo chmod -R 777 opengroksudo chown archermind:archermind opengrok 建立源码索引 12cd opengrok-0.11.1/bin./OpenGrok index /data/code JenkinsJenkins是一个广泛用于持续构建的可视化web工具。在Android源码开发中可以用它来构建自动化编译、版本发布、打包、分发部署。 Jenkins安装下载Jenkins war包（https://jenkins.io/index.html） 启动 1java -jar jenkins.war 访问 http://localhost:8080/ ，第一次登录访问的时候会要求输入“Administrator password”，密码在提示中的文件中。输入密码，进入jenkins。初次登录的时候会提示你安装一些插件，可以选择安装，也可以后面自选安装。 Jenkins配置登录Jenkins：http://localhost:8080 创建job 配置的时候可以根据每个item的提示操作。完成配置后，可以通过”Build Now”运行。 PS:Jenkins的用法很多，可以根据实际项目需求参考相关的教程。]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>OpenGork</tag>
+        <tag>Jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[WIN10下安装HEXO搭建博客]]></title>
+    <url>%2F2019%2F03%2F30%2F01-install-hexo%2F</url>
+    <content type="text"><![CDATA[Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 安装准备 Node.js github 注意：win10下安装如果出现2502错误，即使安装权限问题，按以下步骤安装 “WIN + X” -&gt; 命令提示符（管理员），进入命令行下，使用命令安装：1msiexec /package xxx 安装Hexo打开”git bash”,执行1npm install -g hexo 如出现报错：123456789101112131415161718192021222324252627npm ERR! Error: shasum check failed for C:\Users\ADMINI~1\AppData\Local\Temp\npm-30024-KDJHJzgP\registry.npmjs.org\hexo-cli\-\hexo-cli-0.1.6.tgznpm ERR! Expected: 7dc3ab939d0889c4bed6a961605ff3e2d67f67a2npm ERR! Actual: 41de7d67a9b764352eb07c49c32fc38dd7f479b9npm ERR! From: https://registry.npmjs.org/hexo-cli/-/hexo-cli-0.1.6.tgznpm ERR! at d:\Program Files\nodejs\node_modules\npm\node_modules\sha\index.js:38:8npm ERR! at ReadStream.&lt;anonymous&gt; (d:\Program Files\nodejs\node_modules\npm\node_modules\sha\index.js:85:7)npm ERR! at ReadStream.emit (events.js:117:20)npm ERR! at _stream_readable.js:943:16npm ERR! at process._tickCallback (node.js:419:13)npm ERR! If you need help, you may report this *entire* log,npm ERR! including the npm and node versions, at:npm ERR! &lt;http://github.com/npm/npm/issues&gt;npm ERR! System Windows_NT 6.2.9200npm ERR! command &quot;d:\\Program Files\\nodejs\\node.exe&quot; &quot;d:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js&quot; &quot;install&quot; &quot;-g&quot; &quot;hexo&quot;npm ERR! cwd C:\Users\Administrator\Desktopnpm ERR! node -v v0.10.31npm ERR! npm -v 1.4.23npm ERR! registry error parsing jsonnpm ERR!npm ERR! Additional logging details can be found in:npm ERR! C:\Users\Administrator\Desktop\npm-debug.lognpm ERR! not ok code 0 npm被禁，换国内镜像，12npm config set registry=&quot;http://registry.cnpmjs.orgnpm install -g hexo 安装依赖包1npm install 部署Hexo 创建初始配置 1hexo init 建立网站需要的文件 1hexo generate 本地服务预览 1hexo server 此时通过localhost本地访问预览。 hexo常用命令：1234hexo n == hexo newhexo g == hexo generatehexo s == hexo serverhexo d == hexo deploy]]></content>
+      <categories>
+        <category>IT</category>
+      </categories>
+      <tags>
+        <tag>HEXO</tag>
+      </tags>
+  </entry>
+</search>
