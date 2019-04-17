@@ -54,12 +54,6 @@
   <meta name="360-site-verification" content="{{ theme.qihu_site_verification }}" />
 {% endif %}
 
-+{% if page.type === "photos"  %}
-+  {% set theme.fancybox = false %}
-+{% endif %}
-+{% if page.type !== "photos"  %}
-+  {% set theme.fancybox = true %}
-+{% endif %}
 
 
 {% if theme.fancybox %}

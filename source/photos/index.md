@@ -1,6 +1,7 @@
 ---
 title: photos
 date: 2019-04-17 13:52:13
+fancybox: true
 ---
 
 <link rel="stylesheet" href="../lib/album/ins.css">
@@ -9,8 +10,9 @@ date: 2019-04-17 13:52:13
 <div class="photos-btn-wrap">
   <a class="photos-btn active" href="javascript:void(0)" target="_blank" rel="external">Photos</a>
 </div>
+
 <div class="instagram itemscope">
-  <a href="http://yourbolg.com" target="_blank" class="open-ins">图片正在加载中…</a>
+  <a href="https://njfylong.github.io" target="_blank" class="open-ins">图片正在加载中…</a>
 </div>
 
 <script>
