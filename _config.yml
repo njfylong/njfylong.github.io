@@ -4,8 +4,8 @@
 
 # Site
 title: 醉光阴
-subtitle:
-description:
+subtitle: 光阴似水，醉里浮生
+description: 蹉跎错，消磨过，最是光阴醉光阴！
 author: 醉光阴
 language: zh-Hans
 timezone: Asia/Shanghai
@@ -42,7 +42,7 @@ future: true
 #  line_number: true
 #  auto_detect: false
 #  tab_replace:
-  
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -51,7 +51,7 @@ index_generator:
   path: ''
   per_page: 10
   order_by: -date
-  
+
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -87,4 +87,3 @@ deploy:
     type: git
     repo: git@github.com:njfylong/njfylong.github.io.git
     branch: master
-
