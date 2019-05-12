@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[中国互联网发展]]></title>
+    <url>%2F2019%2F05%2F11%2F03-%E4%B8%AD%E5%9B%BD%E4%BA%92%E8%81%94%E7%BD%91%E5%8F%91%E5%B1%95%2F</url>
+    <content type="text"><![CDATA[这是一个什么都缺，唯独不缺梦想的年代。 中国互联网发展的几个阶段基础建设带动互联网的发展 第一次互联网浪潮（1994～2000） Internet接入点的开通为中国互联网的发展起到了基础性的条件。而此时，中国仍处于互联网“民智未开”时期，但是总有一些人能看到未来，而他们也注成为这个时代的弄潮儿。无疑，奋不顾生于第一次互联网浪潮的这些人儿，他们即是聊流的助力者，也是潮流的获利者。 在第一次浪潮中最为突出的当属三大门户网站（网易、搜狐、新浪）和BAT（百度、阿里巴巴、腾讯），时至今日它们仍活跃在互联网企业的前列。 第二次互联网浪潮（2001～2008） 这是互联网2.0时代。这个阶段中，国内的互联网已经告别了最初的“萌萌无知”，中国互联网开始了内容建设，论坛、博客等在这个时期兴起。同时，这个时期也是中国互联网的收获季，第一次浪潮中的企业开始迎来了上市潮。 第三次互联网浪潮（2009～2014） 这个阶段也可成为移动互联网阶段，智能手机的出现，使得互联网进入人们的日常生活提供的基础。国内创业者也从最初的“复制”国外，更多的结合国情，创立出了本土化的企业。其中最曙目的当属TMD（头条、美团、滴滴），分别从咨询、消费、出行为人口。在BAT建立起的中国互联网生态系统下，能达到如此成就，确实令人称赞。 第四次互联网浪潮（？） “互联网将影响人们生活的方方面面。”这是马云在1995年假借比尔盖茨之口说的话。时至今日，互联网已经改变了人们的衣、食、住、行等各个方面。也许，下一个浪潮就是在这之外。]]></content>
+      <tags>
+        <tag>互联网</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[环境部署]]></title>
     <url>%2F2019%2F03%2F30%2F%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%2F</url>
     <content type="text"><![CDATA[OpenGorkOpenGork是一个快速、便于使用的源码搜索引擎与对照引擎，能帮我们快速的搜索、定位、对照代码树。 启动Tomact12cd Tomact/bin./startup.sh 启动Tomcat服务后，在浏览器中输入网址：http://localhost:8080/ 能够进入以下页面证明Tomcat运行成功 配置OpenGork 解压OpenGrok将opengrok-0.12.1/lib目录下的source.war包拷贝到apache-tomcat-7.0.40/webapps目录下，在浏览器中输入 http://localhost:8080/source/ 查看是否配置成功。 创建/var/opengrok/etc/目录 12345cd /varsudo mkdir opengroksudo mkdir opengrok/etcsudo chmod -R 777 opengroksudo chown archermind:archermind opengrok 建立源码索引 12cd opengrok-0.11.1/bin./OpenGrok index /data/code JenkinsJenkins是一个广泛用于持续构建的可视化web工具。在Android源码开发中可以用它来构建自动化编译、版本发布、打包、分发部署。 Jenkins安装下载Jenkins war包（https://jenkins.io/index.html） 启动 1java -jar jenkins.war 访问 http://localhost:8080/ ，第一次登录访问的时候会要求输入“Administrator password”，密码在提示中的文件中。输入密码，进入jenkins。初次登录的时候会提示你安装一些插件，可以选择安装，也可以后面自选安装。 Jenkins配置登录Jenkins：http://localhost:8080 创建job 配置的时候可以根据每个item的提示操作。完成配置后，可以通过”Build Now”运行。 PS:Jenkins的用法很多，可以根据实际项目需求参考相关的教程。]]></content>
